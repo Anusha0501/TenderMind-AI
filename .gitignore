@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.tendermind.db
+tendermind.db
+node_modules/
+.next/
+dist/
+build/
+.pytest_cache/

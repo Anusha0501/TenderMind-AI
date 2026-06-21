@@ -1,0 +1,6 @@
+import Link from "next/link";
+const links = [["/", "Dashboard"], ["/tenders", "Tender Feed"], ["/reports", "Reports"], ["/analytics", "Analytics"], ["/settings", "Settings"]];
+export function Shell({ children }: { children: React.ReactNode }) {
+  return <main className="min-h-screen bg-[radial-gradient(circle_at_top_left,#1e1b4b,transparent_35%),#080b12] text-slate-100"><nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5"><Link href="/" className="text-xl font-bold tracking-tight">TenderMind<span className="text-violet-400">AI</span></Link><div className="hidden gap-2 md:flex">{links.map(([href,label])=><Link key={href} href={href} className="rounded-full px-4 py-2 text-sm text-slate-300 hover:bg-white/10 hover:text-white">{label}</Link>)}</div></nav><section className="mx-auto max-w-7xl px-6 pb-16">{children}</section></main>;
+}
+export function Card({ title, value, detail }: { title: string; value: string; detail: string }) { return <div className="rounded-3xl border border-white/10 bg-white/[.06] p-6 shadow-glow backdrop-blur"><p className="text-sm text-slate-400">{title}</p><h3 className="mt-3 text-3xl font-semibold">{value}</h3><p className="mt-2 text-sm text-slate-300">{detail}</p></div>; }

@@ -63,3 +63,50 @@ By completing this project, a beginner should be able to explain:
 - how Playwright scraping differs from HTML-only scraping,
 - how FastAPI services are structured,
 - how production AI systems are logged, monitored, tested, and deployed.
+
+## Demo-Ready MVP
+
+This repository now includes a production-structured demo MVP:
+
+- `apps/api`: FastAPI backend with SQLModel persistence, scraper adapters, opportunity scoring, eligibility report generation, health checks, and tests.
+- `apps/web`: Next.js 15 dashboard shell with dark SaaS UI pages for dashboard, tenders, reports, analytics, and settings.
+- `infra`: deployment checklist for Railway, Vercel, Supabase, and Upstash.
+- `.github`: PR and feature issue templates.
+
+## Local Backend Demo
+
+```bash
+cd apps/api
+python -m venv .venv
+source .venv/bin/activate
+pip install -e '.[dev]'
+uvicorn app.main:app --reload
+```
+
+Then call:
+
+```bash
+curl -X POST http://localhost:8000/api/v1/jobs/scrape
+curl http://localhost:8000/api/v1/tenders
+curl -X POST http://localhost:8000/api/v1/tenders/1/score
+curl -X POST http://localhost:8000/api/v1/tenders/1/analyze
+```
+
+## Local Frontend Demo
+
+```bash
+cd apps/web
+npm install
+npm run dev
+```
+
+Open `http://localhost:3000`.
+
+## Roadmap
+
+1. Replace demo scraper adapters with guarded Playwright portal implementations.
+2. Add Celery and Redis for scheduled scraping and long-running AI jobs.
+3. Add Supabase authentication and row-level security.
+4. Integrate Gemini 2.5 Flash through LangGraph nodes.
+5. Add Recharts analytics and real-time job updates.
+6. Add E2E tests and production monitoring dashboards.
