@@ -1,0 +1,2 @@
+import { Card, Shell } from "../../components/shell";
+export default function Page() { return <Shell><h1 className="py-8 text-4xl font-semibold capitalize">settings</h1><div className="grid gap-4 md:grid-cols-3"><Card title="Demo Ready" value="Live" detail="Connect this page to the FastAPI endpoints during local demo."/><Card title="Design" value="SaaS" detail="Dark, responsive, Linear-inspired interface."/><Card title="Next Step" value="Iterate" detail="Add feature-specific tables, filters, and charts."/></div></Shell>; }
